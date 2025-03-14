@@ -32,7 +32,7 @@ pub struct ClientConfig {
     ws_url: String,
     payer_path: String,
     admin_path: String,
-    raydium_cp_program: Pubkey,
+    gravex_cp_program: Pubkey,
     slippage: f64,
 }
 
@@ -56,11 +56,11 @@ fn load_cfg(client_config: &String) -> Result<ClientConfig> {
         panic!("admin_path must not be empty");
     }
 
-    let raydium_cp_program_str = config.get("Global", "raydium_cp_program").unwrap();
-    if raydium_cp_program_str.is_empty() {
-        panic!("raydium_cp_program must not be empty");
+    let gravex_cp_program_str = config.get("Global", "gravex_cp_program").unwrap();
+    if gravex_cp_program_str.is_empty() {
+        panic!("gravex_cp_program must not be empty");
     }
-    let raydium_cp_program = Pubkey::from_str(&raydium_cp_program_str).unwrap();
+    let gravex_cp_program = Pubkey::from_str(&gravex_cp_program_str).unwrap();
     let slippage = config.getfloat("Global", "slippage").unwrap().unwrap();
 
     Ok(ClientConfig {
@@ -68,7 +68,7 @@ fn load_cfg(client_config: &String) -> Result<ClientConfig> {
         ws_url,
         payer_path,
         admin_path,
-        raydium_cp_program,
+        gravex_cp_program,
         slippage,
     })
 }
@@ -139,7 +139,7 @@ fn main() -> Result<()> {
     let url = Cluster::Custom(anchor_config.http_url, anchor_config.ws_url);
     let wallet = read_keypair_file(&pool_config.payer_path)?;
     let anchor_client = Client::new(url, Rc::new(wallet));
-    let program = anchor_client.program(pool_config.raydium_cp_program)?;
+    let program = anchor_client.program(pool_config.gravex_cp_program)?;
 
     let opts = Opts::parse();
     match opts.command {
@@ -715,7 +715,7 @@ fn main() -> Result<()> {
         }
         RaydiumCpCommands::DecodeEvent { log_event } => {
             handle_program_log(
-                &pool_config.raydium_cp_program.to_string(),
+                &pool_config.gravex_cp_program.to_string(),
                 &log_event,
                 false,
             )?;
@@ -741,12 +741,12 @@ fn main() -> Result<()> {
             let encoded_transaction = transaction.transaction;
             // decode instruction data
             parse_program_instruction(
-                &pool_config.raydium_cp_program.to_string(),
+                &pool_config.gravex_cp_program.to_string(),
                 encoded_transaction,
                 meta.clone(),
             )?;
             // decode logs
-            parse_program_event(&pool_config.raydium_cp_program.to_string(), meta.clone())?;
+            parse_program_event(&pool_config.gravex_cp_program.to_string(), meta.clone())?;
         }
     }
     Ok(())

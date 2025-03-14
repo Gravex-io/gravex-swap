@@ -29,7 +29,7 @@ pub fn initialize_pool_instr(
     let url = Cluster::Custom(config.http_url.clone(), config.ws_url.clone());
     // Client.
     let client = Client::new(url, Rc::new(payer));
-    let program = client.program(config.raydium_cp_program)?;
+    let program = client.program(config.gravex_cp_program)?;
 
     let amm_config_index = 0u16;
     let (amm_config_key, __bump) = Pubkey::find_program_address(
@@ -133,7 +133,7 @@ pub fn deposit_instr(
     let url = Cluster::Custom(config.http_url.clone(), config.ws_url.clone());
     // Client.
     let client = Client::new(url, Rc::new(payer));
-    let program = client.program(config.raydium_cp_program)?;
+    let program = client.program(config.gravex_cp_program)?;
 
     let (authority, __bump) = Pubkey::find_program_address(&[AUTH_SEED.as_bytes()], &program.id());
 
@@ -182,7 +182,7 @@ pub fn withdraw_instr(
     let url = Cluster::Custom(config.http_url.clone(), config.ws_url.clone());
     // Client.
     let client = Client::new(url, Rc::new(payer));
-    let program = client.program(config.raydium_cp_program)?;
+    let program = client.program(config.gravex_cp_program)?;
 
     let (authority, __bump) = Pubkey::find_program_address(&[AUTH_SEED.as_bytes()], &program.id());
 
@@ -233,7 +233,7 @@ pub fn swap_base_input_instr(
     let url = Cluster::Custom(config.http_url.clone(), config.ws_url.clone());
     // Client.
     let client = Client::new(url, Rc::new(payer));
-    let program = client.program(config.raydium_cp_program)?;
+    let program = client.program(config.gravex_cp_program)?;
 
     let (authority, __bump) = Pubkey::find_program_address(&[AUTH_SEED.as_bytes()], &program.id());
 
@@ -282,7 +282,7 @@ pub fn swap_base_output_instr(
     let url = Cluster::Custom(config.http_url.clone(), config.ws_url.clone());
     // Client.
     let client = Client::new(url, Rc::new(payer));
-    let program = client.program(config.raydium_cp_program)?;
+    let program = client.program(config.gravex_cp_program)?;
 
     let (authority, __bump) = Pubkey::find_program_address(&[AUTH_SEED.as_bytes()], &program.id());
 

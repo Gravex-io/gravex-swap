@@ -1,4 +1,4 @@
-# raydium-cp-swap
+# gravex-swap
 
 A revamped constant product AMM program optimized for straightforward pool deployment along with additional features and integrations:
 

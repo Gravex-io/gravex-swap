@@ -2,23 +2,21 @@
 
 /*
 
-on-chain and dev-net
+on-chain and dev-net programs an fees 
 ------------------------------------------------------------------------------------------------------------------
-GRVTp.myhCiGf2WWF4Gxy3onNfjabqTJ42azm6p8ArokN.json  // on-chain ProgramID   id() 
-GDEVp.s2GqJRh88meHWaopWaU6V7f5SgSzN1mZqvJGNMt.json  // devnet   ProgramID   id()
-GRVAp.Uwdqcmfb11bzmbo3Q7c5d8Xu7Ftt6RJoRFJgWjy.json  // on-chain ProgramUpdateID ( authortity /  owner )
+✅ GRVTp.myhCiGf2WWF4Gxy3onNfjabqTJ42azm6p8ArokN.json  // on-chain ProgramID   id() 
+✅ GRVAp.Uwdqcmfb11bzmbo3Q7c5d8Xu7Ftt6RJoRFJgWjy.json  // on-chain ProgramUpdateID ( authortity /  owner )
 
-GRVTa.zQEkM8kMLY8TyHvRstnxbVwixmCHMCuEJd16qyv.json  // on-chain Admin ID    crate::admin::id()
-GDEVa.gqMW1LTka5RryB1wtGavSxhUWWErpBaua1QDL5Y.json  // dev-net  Admin ID    crate::admin::id()
+✅ GDEVp.s2GqJRh88meHWaopWaU6V7f5SgSzN1mZqvJGNMt.json  // devnet   ProgramID   id()
 
-GRVTf.7tih2mVFdUwupAfFSbqGsK1YV3N7AQKNmN3AuJe.json  // on-chain FeeID       crate::create_pool_fee_reveiver::id()
-GDEVf.Va57vyPiBEqd7YwNuF9bW15VYCapsTQPa4s8AUn.json  // dev-net  FeeID       crate::create_pool_fee_reveiver::id()
+✅ GRVTa.zQEkM8kMLY8TyHvRstnxbVwixmCHMCuEJd16qyv.json  // on-chain Admin ID    crate::admin::id()
+✅ GDEVa.gqMW1LTka5RryB1wtGavSxhUWWErpBaua1QDL5Y.json  // dev-net  Admin ID    crate::admin::id()
 
-GRV Coin Mint  
-GRVCtMV5r2YEejEAvShQeWcd9faSDBd2TrvKituMC2Pq.json   // on-chain Token       GRV Token 
-GRVAm.UBWjHGmWBuYmr2t7r2Y8CN9ZTW6H2cPhtM3ARyz.json  // on-chain Factory     GRV Mint authority  
+✅ GRVTf.7tih2mVFdUwupAfFSbqGsK1YV3N7AQKNmN3AuJe.json  // on-chain FeeID       crate::create_pool_fee_reveiver::id()
+✅ GDEVf.Va57vyPiBEqd7YwNuF9bW15VYCapsTQPa4s8AUn.json  // dev-net  FeeID       crate::create_pool_fee_reveiver::id()
 
 Meme Coin Mint
+------------------------------------------------------------------------------------------------------------------
 
 spl-token create-token [FLAGS] [OPTIONS] [TOKEN_KEYFILE]
     FLAGS
@@ -90,8 +88,87 @@ pub mod create_pool_fee_reveiver {
     declare_id!("GRVTf7tih2mVFdUwupAfFSbqGsK1YV3N7AQKNmN3AuJe");
 }
 /*
+
+# raydium - Various Raydium Programs 
+# https://github.com/raydium-io/raydium-contract-instructions
+✅ export const FARM_PROGRAM_ID_V3 = new PublicKey("EhhTKczWMGQt46ynNeRX1WfeagwwJd7ufHvCDjRxjo5Q");
+✅ export const AMM_STABLE = new PublicKey("5quBtoiQqxF9Jv6KYKctB59NT3gtJD2Y65kdnB1Uev3h");
+✅ export const LIQUIDITY_POOL_PROGRAM_ID_V5_MODEL = new PublicKey("CDSr3ssLcRB6XYPJwAfFt18MZvEZp4LjHcvzBVZ45duo");
+
+# https://github.com/raydium-io/raydium-cpi ( note the two programs are the samce)
+✅ export const CLMM_LOCK_PROGRAM_ID = new PublicKey("LockrWmn6K5twhz3y9w1dQERbmgSaRkfnTeTKbpofwE");
+✅ export const LOCK_CPMM_PROGRAM = new PublicKey("LockrWmn6K5twhz3y9w1dQERbmgSaRkfnTeTKbpofwE");
+#keypair
+✅ export const LOCK_CPMM_AUTH = new PublicKey("3f7GcQFG397GAaEnv51zR6tsTVihYRydnydDD1cXekxH");
+✅ export const CLMM_LOCK_AUTH_ID = new PublicKey("kN1kEznaF5Xbd8LYuqtEFcxzWSBk5Fv6ygX6SqEGJVy");
+
+# temp fusion
+export const FARM_PROGRAM_ID_V4 = new PublicKey("CBuCnLe26faBpcBP2fktp4rp8abpcAnTWft6ZrP5Q4T");
+# "fusion"
+export const FARM_PROGRAM_ID_V5 = new PublicKey("9KEPoZmtHUrBbhWN1v1KWLMkkvwY6WLtAVUCPRtRjP4z");
+# echosystem
+export const FARM_PROGRAM_ID_V6 = new PublicKey("FarmqiPv5eAj3j1GMdMCMUGXqPUvmquZtMy86QH6rzhG");
+
+# last transaction : 1 year ago, program, no known source code 
+🛑 export const UTIL1216 = new PublicKey("CLaimxFqjHzgTJtAGHU47NPhg6qrc5sCnpC4tBLyABQS");
+
+#open book dex https://github.com/openbook-dex/anchor
+✅ #export const OPEN_BOOK_PROGRAM = new PublicKey("srmqPvymJeFKQ4zGQed1GFppgkRHL9kaELCbyksJtPX");
+
+# Serum DEX - FTX Hack compromised ... use use openbook ( above ) instead
+✅ #export const SERUM_PROGRAM_ID_V3 = new PublicKey("9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin");
+
+# https://github.com/raydium-io/raydium-amm
+✅ export const AMM_V4 = new PublicKey("675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8");
+
+# https://github.com/raydium-io/raydium-clmm
+✅ export const CLMM_PROGRAM_ID = new PublicKey("CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK");
+
+
+
+address - multipl failed transactions? 
+✅ export const DEV_CREATE_CPMM_POOL_AUTH = new PublicKey("7rQ1QFNosMkUCuh7Z7fPbTHvh73b68sQYdirycEzJVuw");
+
+# This project
+✅ export const RAYDIUM_AMM_PROGRAM_ID = new PublicKey("675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8");
+
+# keypair - sol deposits from RAYDIUM_AMM_PROGRAM_ID ?
+✅ export const CREATE_CPMM_POOL_AUTH = new PublicKey("GpMZbSM2GgvTKHJirzeGfMFoaZ8UR2X7F4v8vHTvxFbL");
+
+# keypair - Fee Destination ID ( 205,118 : 000 ) sol create_pool_fee_address
+✅ export const FEE_DESTINATION_ID = new PublicKey("7YttLkHDoNj9wyDur5pM1ejNaAvT9X4eqaYcHQqtj2G5");
+
+# seems to only be in SDK --- and not actually used anywhere? Keep an eye on it.
+# https://github.com/raydium-io/raydium-sdk-V2/tree/06bd87f9bbb3de73dc0b8872d79011bf244f06da/src/raydium/ido
+🛑 export const Router = new PublicKey("routeUGWgWzqBWFcrCfv8tritsqukccJPu3q5GPP3xS");
+
+# IDO program id's Acceleraytor Initial Dex Offering ( fund raising ) NO CODE
+export const IDO_PROGRAM_ID_V1 = new PublicKey("6FJon3QE27qgPVggARueB22hLvoh22VzJpXv4rBEoSLF");
+export const IDO_PROGRAM_ID_V2 = new PublicKey("CC12se5To1CdEuw7fDS27B7Geo5jJyL7t5UK2B44NgiH");
+export const IDO_PROGRAM_ID_V3 = new PublicKey("9HzJyW1qZsEiSfMUf6L2jo3CcTKAyBmSyKdwQeYisHrC");
+export const IDO_PROGRAM_ID_V4 = new PublicKey("DropEU8AvevN3UrXWXTMuz3rqnMczQVNjq3kcSdW2SQi");
+
+# From SDK
+const poolLpAuthority = new Set([
+  '5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1',
+  '3uaZBfHPfmpAHW7dsimC1SnyR61X4bJqQZKWmRSCXJxv',
+  'GpMZbSM2GgvTKHJirzeGfMFoaZ8UR2X7F4v8vHTvxFbL' // CREATE_CPMM_POOL_AUTH 
+])
+
+# CPMM - Constant Product Market Maker ( this program )
+✅ export const CREATE_CPMM_POOL_PROGRAM = new PublicKey("CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C");
+
+# keypair - Fee Destination ID ( 205,118 : 000 ) sol create_pool_fee_address
+✅ export const CREATE_CPMM_POOL_FEE_ACC = new PublicKey("DNXgeM9EiiaAbaWvwjHj9fQQLAX5ZsfHyvmYUNRAdNC8");
+
+#keypair - Possibly the owner of the creation program? 
+✅ export const CREATE_CPMM_POOL_AUTH = new PublicKey("GpMZbSM2GgvTKHJirzeGfMFoaZ8UR2X7F4v8vHTvxFbL");
+
+
+
+
 #[cfg(feature = "devnet")]
-declare_id!("CPMDWBwJDtYax9qW7AyRuVC19Cc4L4Vcy4n2BHAbHkCW");
+declare_id!("CPMDWBwJDtYax9qW7AyRuVC19Cc4L4Vcy4n2BHAbHkCW"); // CREATE_CPMM_POOL_PROGRAM, SDK 
 #[cfg(not(feature = "devnet"))]
 declare_id!("CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C");
 
@@ -106,7 +183,7 @@ pub mod admin {
 pub mod create_pool_fee_reveiver {
     use anchor_lang::prelude::declare_id;
     #[cfg(feature = "devnet")]
-    declare_id!("G11FKBRaAkHAKuLCgLM6K6NUc9rTjPAznRCjZifrTQe2");
+    declare_id!("G11FKBRaAkHAKuLCgLM6K6NUc9rTjPAznRCjZifrTQe2"); // DEV_CREATE_CPMM_POOL_FEE_ACC , SDK
     #[cfg(not(feature = "devnet"))]
     declare_id!("DNXgeM9EiiaAbaWvwjHj9fQQLAX5ZsfHyvmYUNRAdNC8");
 }
